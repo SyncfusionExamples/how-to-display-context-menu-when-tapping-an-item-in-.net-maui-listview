@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>ListViewMaui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>ListViewMaui</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.listviewmaui</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Images\image0.png" />
+	  <None Remove="Images\image1.png" />
+	  <None Remove="Images\image10.png" />
+	  <None Remove="Images\image11.png" />
+	  <None Remove="Images\image12.png" />
+	  <None Remove="Images\image13.png" />
+	  <None Remove="Images\image14.png" />
+	  <None Remove="Images\image15.png" />
+	  <None Remove="Images\image16.png" />
+	  <None Remove="Images\image17.png" />
+	  <None Remove="Images\image18.png" />
+	  <None Remove="Images\image19.png" />
+	  <None Remove="Images\image2.png" />
+	  <None Remove="Images\image20.png" />
+	  <None Remove="Images\image21.png" />
+	  <None Remove="Images\image22.png" />
+	  <None Remove="Images\image23.png" />
+	  <None Remove="Images\image24.png" />
+	  <None Remove="Images\image25.png" />
+	  <None Remove="Images\image26.png" />
+	  <None Remove="Images\image27.png" />
+	  <None Remove="Images\image28.png" />
+	  <None Remove="Images\image3.png" />
+	  <None Remove="Images\image4.png" />
+	  <None Remove="Images\image5.png" />
+	  <None Remove="Images\image6.png" />
+	  <None Remove="Images\image7.png" />
+	  <None Remove="Images\image8.png" />
+	  <None Remove="Images\image9.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Images\image0.png" />
+	  <MauiImage Include="Images\image1.png" />
+	  <MauiImage Include="Images\image10.png" />
+	  <MauiImage Include="Images\image11.png" />
+	  <MauiImage Include="Images\image12.png" />
+	  <MauiImage Include="Images\image13.png" />
+	  <MauiImage Include="Images\image14.png" />
+	  <MauiImage Include="Images\image15.png" />
+	  <MauiImage Include="Images\image16.png" />
+	  <MauiImage Include="Images\image17.png" />
+	  <MauiImage Include="Images\image18.png" />
+	  <MauiImage Include="Images\image19.png" />
+	  <MauiImage Include="Images\image2.png" />
+	  <MauiImage Include="Images\image20.png" />
+	  <MauiImage Include="Images\image21.png" />
+	  <MauiImage Include="Images\image22.png" />
+	  <MauiImage Include="Images\image23.png" />
+	  <MauiImage Include="Images\image24.png" />
+	  <MauiImage Include="Images\image25.png" />
+	  <MauiImage Include="Images\image26.png" />
+	  <MauiImage Include="Images\image27.png" />
+	  <MauiImage Include="Images\image28.png" />
+	  <MauiImage Include="Images\image3.png" />
+	  <MauiImage Include="Images\image4.png" />
+	  <MauiImage Include="Images\image5.png" />
+	  <MauiImage Include="Images\image6.png" />
+	  <MauiImage Include="Images\image7.png" />
+	  <MauiImage Include="Images\image8.png" />
+	  <MauiImage Include="Images\image9.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Syncfusion.Maui.ListView" Version="24.2.8" />
+		<PackageReference Include="Syncfusion.Maui.Popup" Version="24.2.8" />
+	</ItemGroup>
+
+</Project>
