@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewMaui"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             x:Class="ListViewMaui.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+     
+            <syncfusion:SfListView x:Name="listView" SelectionMode="Single" ItemSize="75" 
+                                    ItemsSource="{Binding ContactsInfo}">
+                <syncfusion:SfListView.Behaviors>
+                    <local:Behavior/>
+                </syncfusion:SfListView.Behaviors>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid VerticalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ContactImage}" HeightRequest="50" WidthRequest="50" Grid.Column="0"/>
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="1">
+                                    <Label LineBreakMode="WordWrap"                                                        VerticalOptions="Center" HorizontalOptions="Center"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                   TextColor="#474747" 
+                                                   Text="{Binding ContactName}"/>
+                                    <Label LineBreakMode="WordWrap" 
+                                                   VerticalOptions="Center" HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                   TextColor="#474747"
+                                                   Text="{Binding ContactNumber}">
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                            <BoxView Grid.Row="1"/>
+                        </Grid>
+                          
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+
+            </syncfusion:SfListView>
+      
+    </ContentPage.Content>
+</ContentPage>
+
+
