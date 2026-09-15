@@ -27,7 +27,7 @@ namespace ListViewMaui
         protected override void OnAttachedTo(SfListView listView)
         {
             ListView = listView;
-            ListView.ItemLongPress += ListView_ItemHolding; ;
+            ListView.ItemLongPress += ListView_ItemHolding;
             ListView.ScrollStateChanged += ListView_ScrollStateChanged;
             ListView.ItemTapped += ListView_ItemTapped;
             base.OnAttachedTo(listView);
